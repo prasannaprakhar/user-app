@@ -1,6 +1,7 @@
 import "./App.css";
-import axios from "axios";
+import { Home } from "./Home/Home";
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 function App() {
   const [msg, setMsg] = useState(null);
@@ -23,7 +24,9 @@ function App() {
   }, []);
   return (
     <div className="App">
-      <h3>UserApp</h3>
+      <>
+        <Home />
+      </>
       <br />
       <h5>{msg === null ? "Springboot connection not created" : msg}</h5>
       <br />

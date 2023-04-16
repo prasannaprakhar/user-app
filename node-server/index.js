@@ -24,7 +24,7 @@ mongoose.connect("mongodb://localhost:27017/", {
 
 const port = 5000;
 
-app.get("/", (req, res) => {
+app.post("/", (req, res) => {
   res.send([
     { name: "John", age: 30, car: null },
     { name: "Smith", age: 40, car: null },
