@@ -1,23 +1,35 @@
-var express = require("express");
-var app = express();
+const express = require("express");
 
-var cors = require("cors");
+const cors = require("cors");
+
+const bodyParser = require("body-parser");
+
+const mongoose = require("mongoose");
+
+const app = express();
+
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
 app.use(cors());
 
-var port = 5000;
-
-// var routes = require("./api/routes");
-
-// routes(app);
-
-app.get("/", (req, res) => {
-  res.send("Linked with node server");
+mongoose.connect("mongodb://localhost:27017/", {
+  dbName: "userAppDb",
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
-// server.listen(5000); //3 - listen for any incoming requests
+const port = 5000;
 
-console.log("Node.js web server at port 5000 is running..");
+app.get("/", (req, res) => {
+  res.send([
+    { name: "John", age: 30, car: null },
+    { name: "Smith", age: 40, car: null },
+  ]);
+});
 
 app.listen(port, () => {
   console.log("Server started on port: " + port);

@@ -14,6 +14,7 @@ function App() {
   const getDataFromNodeServer = async () => {
     const response = await axios.get("http://localhost:5000/");
     setNodeMsg(response.data);
+    console.log(response.data);
   };
 
   useEffect(() => {
@@ -26,7 +27,17 @@ function App() {
       <br />
       <h5>{msg === null ? "Springboot connection not created" : msg}</h5>
       <br />
-      <h5>{nodeMsg === null ? "Node connection not created" : nodeMsg}</h5>
+      {nodeMsg !== null ? (
+        nodeMsg.map((option) => {
+          return (
+            <ul>
+              <li>{option.name}</li>
+            </ul>
+          );
+        })
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
