@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ConnectionController {
     @CrossOrigin
-    @RequestMapping("/api/users")
+    @RequestMapping("/")
     public String index(){
-        return "The connection has been established";
+        return "Linking with springboot server";
     }
     
 }
