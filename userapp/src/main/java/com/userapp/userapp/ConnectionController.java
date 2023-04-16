@@ -9,7 +9,7 @@ public class ConnectionController {
     @CrossOrigin
     @RequestMapping("/api/users")
     public String index(){
-        return "The microservice created and linked";
+        return "The connection has been established";
     }
     
 }
