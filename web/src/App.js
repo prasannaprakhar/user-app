@@ -24,9 +24,9 @@ function App() {
     <div className="App">
       <h3>UserApp</h3>
       <br />
-      <h5>{msg}</h5>
+      <h5>{msg === null ? "Springboot connection not created" : msg}</h5>
       <br />
-      <h5>{nodeMsg}</h5>
+      <h5>{nodeMsg === null ? "Node connection not created" : nodeMsg}</h5>
     </div>
   );
 }
