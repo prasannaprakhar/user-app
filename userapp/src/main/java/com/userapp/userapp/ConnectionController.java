@@ -9,7 +9,7 @@ public class ConnectionController {
     @CrossOrigin
     @RequestMapping("/")
     public String index(){
-        return "Linking with springboot server";
+        return "Linked with springboot server";
     }
     
 }

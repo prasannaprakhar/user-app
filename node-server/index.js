@@ -12,7 +12,7 @@ var port = 5000;
 // routes(app);
 
 app.get("/", (req, res) => {
-  res.send("Linking with node server");
+  res.send("Linked with node server");
 });
 
 // server.listen(5000); //3 - listen for any incoming requests
