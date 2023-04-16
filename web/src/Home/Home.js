@@ -1,23 +1,24 @@
-import { Heading } from "../Components/Heading"
-import { Fields } from "../Components/Fields"
-import { List } from "../Components/Lists"
-import {HEADING} from '../Components/constants'
+import { Heading } from "../Components/Heading";
+import { Fields } from "../Components/Fields";
+import { List } from "../Components/Lists";
+import { HEADING } from "../Components/constants";
 
 export const Home = () => {
-    return(
+  return (
+    <div>
+      <div>
         <div>
-            <div>
-            <div><Heading heading={HEADING}/></div>
-            <div><Fields/></div>
-            </div>
-            <div>
-            <div><List/></div>
-            </div>
-            
-            
-            
-            
+          <Heading heading={HEADING} />
         </div>
-
-    )
-}
+        <div>
+          <Fields />
+        </div>
+      </div>
+      <div>
+        <div>
+          <List />
+        </div>
+      </div>
+    </div>
+  );
+};

@@ -1,16 +1,20 @@
 import React from "react";
-import axios from "axios";
+// import axios from "axios";
 
 export const List = () => {
-  const [searchData, setsearchData] = React.useState("");
-  const api = `https://api.postalpincode.in/pincode/${searchData}`;
-  React.useEffect(() => {
-    setTimeout(() => {
-      axios.get(api).then((response) => {
-        console.log(response.data[0]);
-      });
-    }, 2000);
-  }, [searchData]);
+  // const [searchData, setsearchData] = React.useState(null);
+  // const api = `https://api.postalpincode.in/pincode/${searchData}`;
+  // React.useEffect(() => {
+  //   setsearchData(
+  //     setTimeout(() => {
+  //       axios.get(api).then((response) => {
+  //         console.log(response.data[0]);
+  //       });
+  //     }, 2000)
+  //   );
+  // }, [searchData]);
+
+  // console.log(searchData);
 
   return (
     <div>
@@ -37,7 +41,7 @@ export const List = () => {
               placeholder="Username"
               aria-label="Username"
               aria-describedby="basic-addon1"
-              onChange={(event) => setsearchData(event.target.value)}
+              // onChange={(event) => setsearchData(event.target.value)}
             />
           </div>
         </form>

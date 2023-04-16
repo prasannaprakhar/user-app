@@ -1,15 +1,6 @@
-// import { AdapterDayjs } from '@mui/x-date-pickers-pro';
-// import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers';
-// import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-//
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export const Fields = () => {
-  // const [name, setName] = useState(null)
-  // const [dob, setDob] = useState(null)
-  // const [email, setEmail] = useState(null)
-  // const [phnnum, setPhnnum] = useState(null)
-
   const [userData, setUserData] = useState({
     name: null,
     dob: null,
