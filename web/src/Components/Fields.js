@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import axios from "axios";
+// import axios from "axios";
 
 export const Fields = () => {
   const [userData, setUserData] = useState({
@@ -34,14 +34,8 @@ export const Fields = () => {
     }));
   };
 
-  const createNewUser = async (event) => {
-    event.preventDefault();
-    const response = await axios.post(
-      "http://localhost:5000/user/create-user",
-      userData
-    );
-    console.log(response);
-  };
+  // have created for integerating node microservice
+  // const createNewUser = async (event) => {};
 
   console.log("userData :", userData);
   return (
@@ -84,7 +78,7 @@ export const Fields = () => {
             <button
               type="submit"
               class="btn btn-primary"
-              onClick={createNewUser}
+              // onClick={createNewUser}
             >
               Submit
             </button>
