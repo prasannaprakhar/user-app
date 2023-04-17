@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 export const Fields = () => {
   const [userData, setUserData] = useState({
@@ -31,6 +32,15 @@ export const Fields = () => {
       ...prevState,
       phnnum: value,
     }));
+  };
+
+  const createNewUser = async (event) => {
+    event.preventDefault();
+    const response = await axios.post(
+      "http://localhost:5000/user/create-user",
+      userData
+    );
+    console.log(response);
   };
 
   console.log("userData :", userData);
@@ -71,7 +81,11 @@ export const Fields = () => {
             />
           </div>
           <div class="Field_btn">
-            <button type="submit" class="btn btn-primary">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              onClick={createNewUser}
+            >
               Submit
             </button>
           </div>
