@@ -1,4 +1,5 @@
-import { useState } from "react";
+import React, { useState } from "react";
+// import axios from "axios";
 
 export const Fields = () => {
   const [userData, setUserData] = useState({
@@ -32,6 +33,9 @@ export const Fields = () => {
       phnnum: value,
     }));
   };
+
+  // have created for integerating node microservice
+  // const createNewUser = async (event) => {};
 
   console.log("userData :", userData);
   return (
@@ -71,7 +75,11 @@ export const Fields = () => {
             />
           </div>
           <div class="Field_btn">
-            <button type="submit" class="btn btn-primary">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              // onClick={createNewUser}
+            >
               Submit
             </button>
           </div>

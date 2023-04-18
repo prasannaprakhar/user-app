@@ -1,24 +1,59 @@
-var express = require("express");
-var app = express();
+const express = require("express");
+const bodyParser = require("body-parser");
+const cors = require("cors");
+const helmet = require("helmet");
+const morgan = require("morgan");
+const mongoose = require("mongoose");
+const User = require("./models/userModel");
 
-var cors = require("cors");
+const port = 5000;
 
+// defining the Express app
+const app = express();
+
+// * middlewares * //
+
+// adding Helmet to enhance your Rest API's security
+app.use(helmet());
+
+// using bodyParser to parse JSON bodies into JS objects
+app.use(bodyParser.json());
+
+// enabling CORS for all requests
 app.use(cors());
 
-var port = 5000;
+// adding morgan to log HTTP requests
+app.use(morgan("combined"));
 
-// var routes = require("./api/routes");
+app.use(bodyParser.urlencoded({ extended: false }));
 
-// routes(app);
+// * connection with mongoDB database
+mongoose
+  .connect(
+    "mongodb+srv://ppj:ppj@cluster0.cvnte.mongodb.net/user-db?retryWrites=true"
+  )
+  .then(() => {
+    console.log("connected to MongoDB");
+  })
+  .catch((error) => {
+    console.log(error);
+  });
 
-app.get("/", (req, res) => {
-  res.send("Linked with node server");
+// * routes * //
+
+// create user api
+app.post("/user/create-user", async (req, res) => {
+  try {
+    const product = await User.create(req.body);
+    res.status(200).json(product);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ message: error.message });
+  }
+  res.send({ Message: "User created successfully !!" });
 });
 
-// server.listen(5000); //3 - listen for any incoming requests
-
-console.log("Node.js web server at port 5000 is running..");
-
+//starting the server
 app.listen(port, () => {
   console.log("Server started on port: " + port);
 });
