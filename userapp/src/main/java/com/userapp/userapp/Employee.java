@@ -10,17 +10,17 @@ public class Employee {
     // to the properties of
     // the entity
     public Employee(
-        Integer id, String firstName,
-        String lastName, String email)
+        Integer id, String name,
+        String phnnum, String email)
     {
 
         super();
 
         this.id = id;
 
-        this.firstName = firstName;
+        this.name = name;
 
-        this.lastName = lastName;
+        this.phnnum = phnnum;
 
         this.email = email;
 
@@ -29,9 +29,9 @@ public class Employee {
 
      private Integer id;
 
-     private String firstName;
+     private String name;
 
-     private String lastName;
+     private String phnnum;
 
      private String email;
 
@@ -42,9 +42,9 @@ public class Employee {
     {
 
         return "Employee [id="
-            + id + ", firstName="
-            + firstName + ", lastName="
-            + lastName + ", email="
+            + id + ", name="
+            + name + ", phnnum="
+            + phnnum + ", email="
             + email + "]";
 
          
@@ -64,30 +64,30 @@ public class Employee {
         this.id = id;
     }
 
-    public String getFirstName()
+    public String getname()
     {
 
-        return firstName;
+        return name;
     }
 
-    public void setFirstName(
-        String firstName)
+    public void setname(
+        String name)
     {
 
-        this.firstName = firstName;
+        this.name = name;
     }
 
-    public String getLastName()
+    public String getphnnum()
     {
 
-        return lastName;
+        return phnnum;
     }
 
-    public void setLastName(
-        String lastName)
+    public void setphnnum(
+        String phnnum)
     {
 
-        this.lastName = lastName;
+        this.phnnum = phnnum;
     }
 
     public String getEmail()

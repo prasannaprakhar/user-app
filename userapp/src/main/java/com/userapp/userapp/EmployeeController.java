@@ -8,6 +8,7 @@ import org.springframework.http
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind
     .annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind
     .annotation.PostMapping;
 import org.springframework.web.bind
@@ -84,4 +85,26 @@ public class EmployeeController {
             .created(location)
             .build();
     }
+   // Create a POST method
+   // to delete an employee
+   // from the list
+        @CrossOrigin 
+    @PostMapping(
+        path = "/deleteEmployee",
+        consumes = "application/json",
+        produces = "application/json")
+
+    public ResponseEntity<Object> deleteEmployee(
+        @RequestBody Employee employee, Employee id)
+    {
+      employeeDao.deleteEmployee(employee, id);
+    return null;
+    }
+
+        
+// displaying employee by id
+@GetMapping("/search/{id}")
+public Employee getEmployee(@PathVariable int id, Employee employee){
+    return  employeeDao.searchEmployee(id,employee);
+}
 }

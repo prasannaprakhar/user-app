@@ -1,5 +1,4 @@
 package com.userapp.userapp;
-
 import org.springframework
     .stereotype
     .Repository;
@@ -25,19 +24,19 @@ public class EmployeeDAO {
             new Employee(
                 1,
                 "Swetanshu",
-                "Das",
+                "87878899",
                 "swetanshudas@gmail.com"));
 
         list.getEmployeeList().add(
             new Employee(
                 2, "Prassanna",
-                "Jha",
+                "887674939838",
                 "prassanna@gmail.com"));
 
         list.getEmployeeList().add(
             new Employee(
                 3, "Mayank",
-                "Hinoo",
+                "838089983938",
                 "mayankHinoo@gmail.com"));
 
          
@@ -58,7 +57,29 @@ public class EmployeeDAO {
     {
         list.getEmployeeList()
             .add(employee);
-         
+
+            
+    }
+
+       // Method to delete an employee
+        // from the employees list
+        public void
+        deleteEmployee(Employee employee, Employee id)
+    {
+        int newid = employee.getId() - 1;
+       
+        list.getEmployeeList().remove(
+            newid);       
+    }
+
+    // Method to search an employee
+        // from the employees list
+        public 
+        Employee searchEmployee(int id,Employee employee)
+    {
+        int newid = employee.getId() -1;
+        list.getEmployeeList().get(newid);
+        return  list.getEmployeeList().get(newid);
     }
 
 
