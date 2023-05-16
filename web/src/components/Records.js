@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { BsTrashFill } from "react-icons/bs";
+import { FiEdit } from "react-icons/fi";
 import axios from "axios";
 import "./Records.css";
 
 export const Records = ({ isUserCreated }) => {
   const [users, setUsers] = useState([]);
-
-  console.log("user msg :", isUserCreated);
 
   const getAllUsersList = async () => {
     const allUsersData = await axios.get(
@@ -20,6 +19,25 @@ export const Records = ({ isUserCreated }) => {
       `http://localhost:5000/user/delete-user/${id}`
     );
     deleteResponse.data.message === "User deleted successfully !!" &&
+      getAllUsersList();
+  };
+
+  const updateTheUser = async (event, id) => {
+    const name = prompt("Please enter updated name.");
+    const email = prompt("Please enter updated email.");
+    const phn = prompt("Please enter updated phone number.");
+    const dob = prompt("Please enter updated dob.");
+
+    const updateRes = await axios.put(
+      `http://localhost:5000/user/update-user/${id}`,
+      {
+        name: name,
+        dob: dob,
+        email: email,
+        phnnum: phn,
+      }
+    );
+    updateRes.data.message === "User updated successfully !!" &&
       getAllUsersList();
   };
 
@@ -57,6 +75,11 @@ export const Records = ({ isUserCreated }) => {
                       <td>{user.dob}</td>
                       <td onClick={(event) => deleteTheUser(event, user._id)}>
                         <BsTrashFill />
+                      </td>
+                      <td>
+                        <FiEdit
+                          onClick={(event) => updateTheUser(event, user._id)}
+                        />
                       </td>
                     </tr>
                   );
