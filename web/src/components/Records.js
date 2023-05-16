@@ -50,7 +50,7 @@ export const Records = ({ isUserCreated }) => {
   }, []);
 
   return (
-    <div>
+    <div className="Table-div">
       <table>
         <>
           {users.length !== 0 && (
@@ -63,25 +63,29 @@ export const Records = ({ isUserCreated }) => {
                   <th>Phone Number</th>
                   <th>DOB</th>
                 </tr>
+                <br />
               </thead>
               <tbody>
                 {users.map((user, index) => {
                   return (
-                    <tr key={user._id}>
-                      <td>{index + 1}</td>
-                      <td>{user.name}</td>
-                      <td>{user.email}</td>
-                      <td>{user.phnnum}</td>
-                      <td>{user.dob}</td>
-                      <td onClick={(event) => deleteTheUser(event, user._id)}>
-                        <BsTrashFill />
-                      </td>
-                      <td>
-                        <FiEdit
-                          onClick={(event) => updateTheUser(event, user._id)}
-                        />
-                      </td>
-                    </tr>
+                    <>
+                      <tr key={user._id}>
+                        <td>{index + 1}</td>
+                        <td>{user.name}</td>
+                        <td>{user.email}</td>
+                        <td>{user.phnnum}</td>
+                        <td>{user.dob}</td>
+                        <td onClick={(event) => deleteTheUser(event, user._id)}>
+                          <BsTrashFill />
+                        </td>
+                        <td>
+                          <FiEdit
+                            onClick={(event) => updateTheUser(event, user._id)}
+                          />
+                        </td>
+                      </tr>
+                      <br />
+                    </>
                   );
                 })}
               </tbody>

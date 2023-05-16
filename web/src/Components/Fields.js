@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./Fields.css";
 
 export const Fields = ({ setIsIUserCreated }) => {
   const [userData, setUserData] = useState({
@@ -55,7 +56,7 @@ export const Fields = ({ setIsIUserCreated }) => {
     <div>
       <form>
         <div className="row">
-          <div className="col-5">
+          <div className="col-9">
             <input
               type="text"
               className="form-control"
@@ -64,7 +65,7 @@ export const Fields = ({ setIsIUserCreated }) => {
               onChange={(event) => handleNameChange(event)}
             />
           </div>
-          <div className="col-5">
+          <div className="col-9">
             <input
               type="date"
               className="form-control"
@@ -73,7 +74,7 @@ export const Fields = ({ setIsIUserCreated }) => {
               onChange={(event) => handleDateChange(event)}
             />
           </div>
-          <div className="col-5">
+          <div className="col-9">
             <input
               type="text"
               className="form-control"
@@ -82,7 +83,7 @@ export const Fields = ({ setIsIUserCreated }) => {
               onChange={(event) => handleEmailChange(event)}
             />
           </div>
-          <div className="col-5">
+          <div className="col-9">
             <input
               type="text"
               className="form-control"
