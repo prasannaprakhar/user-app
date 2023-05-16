@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import axios from "axios";
 import "./Fields.css";
 
-export const Fields = ({ setIsIUserCreated }) => {
+export const Fields = ({ createNewUser }) => {
   const [userData, setUserData] = useState({
     name: "",
     dob: "",
@@ -35,15 +34,8 @@ export const Fields = ({ setIsIUserCreated }) => {
     }));
   };
 
-  // have created for integerating node microservice
-  const createNewUser = async (event) => {
-    event.preventDefault();
-    const response = await axios.post(
-      "http://localhost:5000/user/create-user",
-      userData
-    );
-    response.data.message === "User created successfully !!" &&
-      setIsIUserCreated(true);
+  const createTheUser = (event, userData) => {
+    createNewUser(event, userData);
 
     setUserData({
       name: "",
@@ -52,6 +44,7 @@ export const Fields = ({ setIsIUserCreated }) => {
       phnnum: "",
     });
   };
+
   return (
     <div>
       <form>
@@ -96,7 +89,7 @@ export const Fields = ({ setIsIUserCreated }) => {
             <button
               type="submit"
               className="btn btn-primary"
-              onClick={(event) => createNewUser(event)}
+              onClick={(event) => createTheUser(event, userData)}
             >
               Submit
             </button>
