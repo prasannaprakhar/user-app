@@ -1,84 +1,101 @@
 import React, { useState } from "react";
-// import axios from "axios";
+import axios from "axios";
 
-export const Fields = () => {
+export const Fields = ({ setIsIUserCreated }) => {
   const [userData, setUserData] = useState({
-    name: null,
-    dob: null,
-    email: null,
-    phnnum: null,
+    name: "",
+    dob: "",
+    email: "",
+    phnnum: "",
   });
 
-  const handleNameChange = (value) => {
+  const handleNameChange = (event) => {
     setUserData((prevState) => ({
       ...prevState,
-      name: value,
+      name: event.target.value,
     }));
   };
-  const handleDateChange = (value) => {
+  const handleDateChange = (event) => {
     setUserData((prevState) => ({
       ...prevState,
-      dob: value,
+      dob: event.target.value,
     }));
   };
-  const handleEmailChange = (value) => {
+  const handleEmailChange = (event) => {
     setUserData((prevState) => ({
       ...prevState,
-      email: value,
+      email: event.target.value,
     }));
   };
-  const handlePhnNumChange = (value) => {
+  const handlePhnNumChange = (event) => {
     setUserData((prevState) => ({
       ...prevState,
-      phnnum: value,
+      phnnum: event.target.value,
     }));
   };
 
   // have created for integerating node microservice
-  // const createNewUser = async (event) => {};
+  const createNewUser = async (event) => {
+    event.preventDefault();
+    const response = await axios.post(
+      "http://localhost:5000/user/create-user",
+      userData
+    );
+    response.data.message === "User created successfully !!" &&
+      setIsIUserCreated(true);
 
-  console.log("userData :", userData);
+    setUserData({
+      name: "",
+      dob: "",
+      email: "",
+      phnnum: "",
+    });
+  };
   return (
     <div>
       <form>
-        <div class="row">
-          <div class="col-5">
+        <div className="row">
+          <div className="col-5">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="Enter Name"
-              onChange={(event) => handleNameChange(event.target.value)}
+              value={userData.name}
+              onChange={(event) => handleNameChange(event)}
             />
           </div>
-          <div class="col-5">
+          <div className="col-5">
             <input
               type="date"
-              class="form-control"
+              className="form-control"
               placeholder="Enter D.O.B"
-              onChange={(event) => handleDateChange(event.target.value)}
+              value={userData.dob}
+              onChange={(event) => handleDateChange(event)}
             />
           </div>
-          <div class="col-5">
+          <div className="col-5">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="Enter Email"
-              onChange={(event) => handleEmailChange(event.target.value)}
+              value={userData.email}
+              onChange={(event) => handleEmailChange(event)}
             />
           </div>
-          <div class="col-5">
+          <div className="col-5">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               placeholder="Phone Number"
-              onChange={(event) => handlePhnNumChange(event.target.value)}
+              value={userData.phnnum}
+              onChange={(event) => handlePhnNumChange(event)}
             />
           </div>
-          <div class="Field_btn">
+          <div className="Field_btn">
             <button
               type="submit"
-              class="btn btn-primary"
-              // onClick={createNewUser}
+              className="btn btn-primary"
+              onClick={(event) => createNewUser(event)}
             >
               Submit
             </button>
