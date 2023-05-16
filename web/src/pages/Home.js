@@ -5,11 +5,17 @@ import { HEADING } from "../components/constants";
 import { Records } from "../components/Records";
 import { useState, useEffect } from "react";
 import "./Home.css";
-import { AiOutlineSortAscending, AiFillFilter } from "react-icons/ai";
+import {
+  AiOutlineSortAscending,
+  AiFillFilter,
+  AiOutlineFilter,
+} from "react-icons/ai";
 import axios from "axios";
 
 export const Home = () => {
   const [updatedList, setUpdatedList] = useState([]);
+  const [isSorted, setIsSorted] = useState(false);
+  const [isFilter, setIsFilter] = useState(false);
 
   //user search api
   const searchUsers = async (event) => {
@@ -73,6 +79,24 @@ export const Home = () => {
       getAllUsersList();
   };
 
+  //sort api
+  const sortTheUsers = async () => {
+    const getSortedUsers = await axios.get(
+      "http://localhost:5000/user/sort-users"
+    );
+    setUpdatedList(getSortedUsers.data);
+    setIsSorted(!isSorted);
+  };
+
+  //filter api
+  const filterTheUsers = () => {
+    setIsFilter(!isFilter);
+  };
+
+  useEffect(() => {
+    !isSorted && getAllUsersList();
+  }, [isSorted]);
+
   useEffect(() => {
     getAllUsersList();
   }, []);
@@ -92,11 +116,21 @@ export const Home = () => {
           </div>
           <div className="Filter-bar"></div>
           <div className="Sort-bar">
-            <div className="sort-icon">
+            <div
+              className={isSorted ? "sort-icon-fill" : "sort-icon"}
+              onClick={sortTheUsers}
+            >
               <AiOutlineSortAscending size={25} />
             </div>
-            <div className="filter-icon">
-              <AiFillFilter size={25} />
+            <div
+              className={isFilter ? "filter-icon-fill" : "filter-icon"}
+              onClick={filterTheUsers}
+            >
+              {isFilter ? (
+                <AiFillFilter size={25} />
+              ) : (
+                <AiOutlineFilter size={25} />
+              )}
             </div>
           </div>
         </div>

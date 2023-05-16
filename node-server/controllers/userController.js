@@ -61,10 +61,22 @@ const searchUsers = async (req, res) => {
   }
 };
 
+//sort users in ascending order based on name
+const sortUsers = async (_, res) => {
+  try {
+    const sortedUsers = await User.find({}).sort({ name: 1 }).exec();
+
+    res.status(200).json(sortedUsers);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getAllUsers,
   createNewUser,
   deleteUserById,
   updateUserById,
   searchUsers,
+  sortUsers,
 };

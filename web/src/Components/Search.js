@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Search.css";
 import { AiOutlineSearch } from "react-icons/ai";
+import { FcSearch } from "react-icons/fc";
 
 export const Search = ({ searchUsers }) => {
+  const [isSearching, setIsSerching] = useState(false);
+
+  const searchTheUser = (event) => {
+    searchUsers(event);
+    event.target.value === "" ? setIsSerching(false) : setIsSerching(true);
+  };
   return (
     <div>
       <div>
@@ -14,10 +21,14 @@ export const Search = ({ searchUsers }) => {
               placeholder="Username"
               aria-label="Username"
               aria-describedby="basic-addon1"
-              onChange={(event) => searchUsers(event)}
+              onChange={(event) => searchTheUser(event)}
             />
             <div className="input-group-prepend">
-              <AiOutlineSearch size={22} />
+              {isSearching ? (
+                <FcSearch size={28} />
+              ) : (
+                <AiOutlineSearch size={22} />
+              )}
             </div>
           </div>
         </form>
