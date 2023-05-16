@@ -1,4 +1,4 @@
-const User = require("../models/userModel");
+const { User } = require("../db");
 
 //get all users
 const getAllUsers = async (_, res) => {
@@ -13,8 +13,10 @@ const getAllUsers = async (_, res) => {
 //create new user
 const createNewUser = async (req, res) => {
   try {
-    const user = await User.create(req.body);
-    res.status(200).json({ message: "User created successfully !!", user });
+    const newUser = await User.create(req.body);
+    res
+      .status(200)
+      .json({ user: newUser, message: "User created successfully !!" });
   } catch (error) {
     console.log(error.message);
     res.status(500).json({ message: error.message });
@@ -23,13 +25,29 @@ const createNewUser = async (req, res) => {
 
 //delete existing user
 const deleteUserById = async (req, res) => {
-  const userId = req.params.id;
-  const deletedUser = await User.findOneAndDelete({ _id: userId });
-  res.json({ message: "User deleted successfully !!", deletedUser });
+  try {
+    const deletedUser = await User.findOneAndDelete({ _id: req.params.id });
+    res.json({ user: deletedUser, message: "User deleted successfully !!" });
+  } catch {
+    res.status(400).json({ message: error.message });
+  }
+};
+
+//update existing user
+const updateUserById = async (req, res) => {
+  try {
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body);
+    res
+      .status(200)
+      .json({ user: updatedUser, message: "User updated successfully !!" });
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 };
 
 module.exports = {
   getAllUsers,
   createNewUser,
   deleteUserById,
+  updateUserById,
 };
