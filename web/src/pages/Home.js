@@ -1,10 +1,11 @@
 import { Heading } from "../components/Heading";
 import { Fields } from "../components/Fields";
-import { List } from "../components/Lists";
+import { List } from "../components/Search";
 import { HEADING } from "../components/constants";
 import { Records } from "../components/Records";
 import { useState } from "react";
 import "./Home.css";
+import { AiOutlineSortAscending, AiFillFilter } from "react-icons/ai";
 
 export const Home = () => {
   const [isUserCreated, setIsIUserCreated] = useState(false);
@@ -42,7 +43,21 @@ export const Home = () => {
         <Fields setIsIUserCreated={setIsIUserCreated} />
       </div>
       <div className="List-section">
-        <div style={{ margin: "120px" }}>
+        <div className="Tool-list">
+          <div className="Search-bar">
+            <List />
+          </div>
+          <div className="Filter-bar"></div>
+          <div className="Sort-bar">
+            <div className="sort-icon">
+              <AiOutlineSortAscending />
+            </div>
+            <div className="filter-icon">
+              <AiFillFilter />
+            </div>
+          </div>
+        </div>
+        <div className="">
           <Records isUserCreated={isUserCreated ? isUserCreated : false} />
         </div>
       </div>

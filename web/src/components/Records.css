@@ -1,6 +1,23 @@
-table,
-th,
-td {
-  border: 1px solid black;
-  border-collapse: collapse;
+.Table-div{
+  margin: 35px 25px 16px 12px;
 }
+table{
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  
+}
+
+th{
+}
+
+td {
+
+}
+
+tr{
+  /* border: 1px solid black; */
+  border-collapse: collapse;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+

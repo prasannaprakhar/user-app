@@ -1,5 +1,48 @@
-.form-section{
+/* .form-section{
     /* width: 200px;
     height: 300px;
     border: 1px solid red; */
-}
+
+ 
+    .Tool-list{
+    height: 50px;
+    width: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0px 10px 10px;
+        
+    }
+    .Search-bar{
+        /* border: 1px solid black; */
+        width: 30%;
+        height: auto;
+        /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+        /* margin: 10px; */
+
+
+    }
+    /* .Filter-bar{
+        border: 1px solid black;
+        width: 30%;
+        height: auto;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    } */
+    .Sort-bar{
+        /* border: 1px solid black; */
+        width: 30%;
+        height: auto;
+        /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+        display: flex;
+        justify-content: end;
+        margin: 10px 27px 10px 5px;
+    }
+    .List-section{
+        padding: 70px;
+    }
+    .sort-icon{
+        margin-right: 20px;
+    }
+    .filter-icon{
+        margin-right: 20px;
+    }
