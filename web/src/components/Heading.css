@@ -1,0 +1,21 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+}
+
+.heading {
+  background-color: black;
+  color: maroon;
+  text-align: center;
+  width: 90%;
+}
+
+.logout {
+  margin: 10px 19px 14px 14px;
+}
+
+.logout:hover {
+  background-color: lightblue;
+  border: 1px solid;
+  box-shadow: rgba(10, 10, 10, 10.24) 0px 3px 8px;
+}

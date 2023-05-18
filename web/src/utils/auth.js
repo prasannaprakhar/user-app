@@ -16,3 +16,7 @@ export const isUserAuthenticated = () => {
   const token = getAuthToken();
   return !!token; // Return true if token exists
 };
+
+export const logoutUser = () => {
+  sessionStorage.removeItem(TOKEN_KEY);
+};

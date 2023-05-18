@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Register } from "./components/Register";
 import { Login } from "./components/Login";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { setAuthToken } from "./utils/auth";
+import { isUserAuthenticated, setAuthToken } from "./utils/auth";
 import Cookies from "js-cookie";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 
@@ -30,7 +30,13 @@ const App = () => {
           {/* <ProtectedRoute path="/" element={<Home />} token={jwtToken} /> */}
           <Route
             path="/"
-            element={jwtToken ? <Home /> : <Navigate to="/login" replace />}
+            element={
+              jwtToken || isUserAuthenticated() ? (
+                <Home />
+              ) : (
+                <Navigate to="/login" replace />
+              )
+            }
           />
         </Routes>
       </BrowserRouter>
