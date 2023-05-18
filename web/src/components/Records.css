@@ -1,21 +1,19 @@
-.Table-div{
+.Table-div {
   margin: 35px 25px 16px 12px;
 }
-table{
+table {
   width: 100%;
   height: 300px;
   text-align: center;
-  
 }
 
-th{
+th {
 }
 
 td {
-
 }
 
-tr{
+tr {
   /* border: 1px solid black; */
   border-collapse: collapse;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -28,3 +26,6 @@ tr{
 }
 
 
+.no-records {
+  margin: 50px 20px 50px 20px;
+}

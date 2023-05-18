@@ -45,9 +45,38 @@ const updateUserById = async (req, res) => {
   }
 };
 
+//search based on search Term
+const searchUsers = async (req, res) => {
+  try {
+    const searchQuery = req.query.search;
+    const regex = new RegExp(searchQuery, "i"); // Create a case-insensitive regular expression
+
+    const matchedUsers = await User.find({
+      name: { $regex: regex },
+    });
+
+    res.status(200).json(matchedUsers);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
+//sort users in ascending order based on name
+const sortUsers = async (_, res) => {
+  try {
+    const sortedUsers = await User.find({}).sort({ name: 1 }).exec();
+
+    res.status(200).json(sortedUsers);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
 module.exports = {
   getAllUsers,
   createNewUser,
   deleteUserById,
   updateUserById,
+  searchUsers,
+  sortUsers,
 };
