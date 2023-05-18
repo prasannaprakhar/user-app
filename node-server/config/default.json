@@ -1,4 +1,5 @@
 {
   "PORT": 5000,
-  "MONGO_DB_NAME": "user-db"
+  "MONGO_DB_NAME": "user-db",
+  "JWT_SECRET": "my-secret-key"
 }

@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const config = require("config");
 const userSchema = require("./models/userModel");
+const authenticationSchema = require("./models/authenticationModel");
 
 const mongoDb = config.get("MONGO_DB_NAME");
 
@@ -17,5 +18,6 @@ mongoose
   });
 
 const User = mongoose.model("User", userSchema);
+const Authentication = mongoose.model("Authentication", authenticationSchema);
 
-module.exports = { User };
+module.exports = { User, Authentication };

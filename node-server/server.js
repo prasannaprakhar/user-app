@@ -4,6 +4,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
 const userRoutes = require("./routes/userRoutes");
+const authenticationRoutes = require("./routes/authenticationRoutes");
 const config = require("config");
 
 const port = config.get("PORT");
@@ -26,7 +27,8 @@ app.use(cors());
 app.use(morgan("combined"));
 
 // * routes * //
-app.use("/", userRoutes);
+app.use("/user", userRoutes);
+app.use("/", authenticationRoutes);
 
 //starting the server
 app.listen(port, () => {
