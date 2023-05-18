@@ -53,7 +53,7 @@ export const Fields = ({ setIsIUserCreated }) => {
     });
   };
   return (
-    <div>
+    <div className="form-container">
       <form>
         <div className="row">
           <div className="col-9">
@@ -95,7 +95,7 @@ export const Fields = ({ setIsIUserCreated }) => {
           <div className="Field_btn">
             <button
               type="submit"
-              className="btn btn-primary"
+              className="btn-primary"
               onClick={(event) => createNewUser(event)}
             >
               Submit

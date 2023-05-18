@@ -4,6 +4,14 @@
     border: 1px solid red; */
 
  
+  .Heading-section{
+    /* position: fixed; */
+    width: 100%;
+    /* margin-bottom: 50px; */
+  }
+  /* .Form-section{
+    margin-top: 50px;
+  } */
     .Tool-list{
     height: 50px;
     width: 100%;

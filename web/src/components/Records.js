@@ -55,16 +55,20 @@ export const Records = ({ isUserCreated }) => {
         <>
           {users.length !== 0 && (
             <>
-              <thead>
+              <thead className="table-head">
                 <tr>
                   <th>No</th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone Number</th>
                   <th>DOB</th>
+                  <th></th>
+                  <th></th>
+                 
                 </tr>
-                <br />
+                {/* <br /> */}
               </thead>
+              <br/>
               <tbody>
                 {users.map((user, index) => {
                   return (
