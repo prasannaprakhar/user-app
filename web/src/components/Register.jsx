@@ -3,6 +3,8 @@ import "./Register.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const BASE_URL = "http://localhost:5000";
+
 export const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -11,7 +13,7 @@ export const Register = () => {
 
   const handleRegister = async (event) => {
     event.preventDefault();
-    const res = await axios.post("http://localhost:5000/register", {
+    const res = await axios.post(BASE_URL + "/register", {
       username,
       email,
       password,

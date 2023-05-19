@@ -3,6 +3,8 @@ import "./Login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
+const BASE_URL = "http://localhost:5000";
+
 export const Login = ({ setToken }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -11,7 +13,7 @@ export const Login = ({ setToken }) => {
   const handleLogin = async (event) => {
     event.preventDefault();
     try {
-      const loginRes = await axios.post("http://localhost:5000/login", {
+      const loginRes = await axios.post(BASE_URL + "/login", {
         username,
         password,
       });

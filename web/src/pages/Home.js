@@ -10,7 +10,7 @@ import {
   AiFillFilter,
   AiOutlineFilter,
 } from "react-icons/ai";
-import axios from "axios";
+import api from "../api/api";
 
 export const Home = () => {
   const [updatedList, setUpdatedList] = useState([]);
@@ -20,41 +20,31 @@ export const Home = () => {
   //user search api
   const searchUsers = async (event) => {
     const { value } = event.target;
-    const searchRecords = await axios.get(
-      "http://localhost:5000/user/search-users",
-      {
-        params: {
-          search: value,
-        },
-      }
-    );
+    const searchRecords = await api.get("/user/search-users", {
+      params: {
+        search: value,
+      },
+    });
     setUpdatedList(searchRecords?.data);
   };
 
   //create new user api
   const createNewUser = async (event, user) => {
     event.preventDefault();
-    const response = await axios.post(
-      "http://localhost:5000/user/create-user",
-      user
-    );
+    const response = await api.post("/user/create-user", user);
     response.data.message === "User created successfully !!" &&
       getAllUsersList();
   };
 
   //get all users
   const getAllUsersList = async () => {
-    const allUsersData = await axios.get(
-      "http://localhost:5000/user/get-all-users"
-    );
+    const allUsersData = await api.get("/user/get-all-users");
     setUpdatedList(allUsersData.data);
   };
 
   //delete user api
   const deleteTheUser = async (event, id) => {
-    const deleteResponse = await axios.delete(
-      `http://localhost:5000/user/delete-user/${id}`
-    );
+    const deleteResponse = await api.delete(`/user/delete-user/${id}`);
     deleteResponse.data.message === "User deleted successfully !!" &&
       getAllUsersList();
   };
@@ -66,24 +56,19 @@ export const Home = () => {
     const phn = prompt("Please enter updated phone number.");
     const dob = prompt("Please enter updated dob.");
 
-    const updateRes = await axios.put(
-      `http://localhost:5000/user/update-user/${id}`,
-      {
-        name: name,
-        dob: dob,
-        email: email,
-        phnnum: phn,
-      }
-    );
+    const updateRes = await api.put(`/user/update-user/${id}`, {
+      name: name,
+      dob: dob,
+      email: email,
+      phnnum: phn,
+    });
     updateRes.data.message === "User updated successfully !!" &&
       getAllUsersList();
   };
 
   //sort api
   const sortTheUsers = async () => {
-    const getSortedUsers = await axios.get(
-      "http://localhost:5000/user/sort-users"
-    );
+    const getSortedUsers = await api.get("/user/sort-users");
     setUpdatedList(getSortedUsers.data);
     setIsSorted(!isSorted);
   };

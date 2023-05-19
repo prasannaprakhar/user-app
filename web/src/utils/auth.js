@@ -19,4 +19,5 @@ export const isUserAuthenticated = () => {
 
 export const logoutUser = () => {
   sessionStorage.removeItem(TOKEN_KEY);
+  window.location.href = "/login";
 };
