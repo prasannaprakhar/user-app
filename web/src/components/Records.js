@@ -10,16 +10,20 @@ export const Records = ({ deleteUser, updateUser, records }) => {
         <>
           {records.length !== 0 ? (
             <>
-              <thead>
+              <thead className="table-head">
                 <tr>
                   <th>No</th>
                   <th>Name</th>
                   <th>Email</th>
                   <th>Phone Number</th>
                   <th>DOB</th>
+                  <th></th>
+                  <th></th>
+                 
                 </tr>
-                <br />
+                {/* <br /> */}
               </thead>
+              <br/>
               <tbody>
                 {records.map((user, index) => {
                   return (

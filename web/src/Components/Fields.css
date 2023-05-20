@@ -1,7 +1,19 @@
 /* .row{
     border: 5px solid black;
 } */
-.col-9{
-    /* width: 30%; */
-   
-}
+
+    .form-control{
+        background-color: white;
+    }
+    .form-container{
+        padding: 20px 151px 20px 150px;
+    }
+    input{
+        margin-bottom: 20px;
+    }
+    .btn-primary{
+        background-color:  rgb(175, 174, 174);
+        color: black;
+        width: 130px;
+        border-radius: 4px;
+    }
