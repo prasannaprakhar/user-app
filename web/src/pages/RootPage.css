@@ -1,0 +1,11 @@
+.navbar-section {
+  border: 1px;
+  height: auto;
+}
+
+.side-drawer {
+  width: 96%;
+  height: 1000px;
+  border: 1px;
+  margin: 20px 31px 29px 21px;
+}

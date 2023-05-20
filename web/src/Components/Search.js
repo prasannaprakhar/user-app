@@ -13,17 +13,17 @@ export const Search = ({ searchUsers }) => {
   return (
     <div>
       <div>
-        <form className="form-inline">
-          <div className="input-group">
+        <form className="form-type">
+          <div className="input-grp">
             <input
               type="text"
-              className="form-control"
+              id="search-box"
               placeholder="Username"
               aria-label="Username"
               aria-describedby="basic-addon1"
               onChange={(event) => searchTheUser(event)}
             />
-            <div className="input-group-prepend">
+            <div className="input-grp-icon">
               {isSearching ? (
                 <FcSearch size={28} />
               ) : (

@@ -34,7 +34,10 @@
   margin: 10px 27px 10px 5px;
 }
 .List-section {
+  margin: 60px 14px 10px 10px;
   padding: 70px;
+  border: 1px solid #f1f1f1;
+  background-color: #f1f1f1;
 }
 .sort-icon {
   margin-right: 20px;
@@ -55,10 +58,6 @@
   box-shadow: rgba(10, 10, 10, 10.24) 0px 3px 8px;
 }
 
-.Navbar-section{
-  border: 1px;
-  height: auto;
-
-  
+.main-home {
+  margin: 10px 15px 10px 100px;
 }
-

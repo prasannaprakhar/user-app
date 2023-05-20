@@ -8,6 +8,7 @@ import { isUserAuthenticated, setAuthToken } from "./utils/auth";
 import Cookies from "js-cookie";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { Ghar } from "./pages/Ghar";
+import { RootPage } from "./pages/RootPage";
 
 const App = () => {
   const [jwtToken, setJwtToken] = useState("");
@@ -33,15 +34,13 @@ const App = () => {
             path="/home"
             element={
               jwtToken || isUserAuthenticated() ? (
-                <Home />
+                <RootPage />
               ) : (
                 <Navigate to="/" replace />
               )
             }
           />
-          <Route path="/" 
-          element= {<Ghar/>}
-          />
+          <Route path="/" element={<Ghar />} />
         </Routes>
       </BrowserRouter>
     </div>

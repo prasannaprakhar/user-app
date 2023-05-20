@@ -1,7 +1,5 @@
-import { Heading } from "../components/Heading";
 import { Fields } from "../components/Fields";
 import { Search } from "../components/Search";
-import { HEADING } from "../components/constants";
 import { Records } from "../components/Records";
 import { useState, useEffect } from "react";
 import "./Home.css";
@@ -12,6 +10,7 @@ import {
   AiOutlineFilter,
 } from "react-icons/ai";
 import api from "../api/api";
+import { SideDrawer } from "../components/SideDrawer";
 
 export const Home = () => {
   const [updatedList, setUpdatedList] = useState([]);
@@ -88,11 +87,7 @@ export const Home = () => {
   }, []);
 
   return (
-    <div>
-      <div className="Navbar-section">
-        {/* <Heading heading={HEADING} /> */}
-        <Navbar/>
-      </div>
+    <div className="main-home">
       <div className="Form-section">
         <Fields createNewUser={(event, user) => createNewUser(event, user)} />
       </div>
