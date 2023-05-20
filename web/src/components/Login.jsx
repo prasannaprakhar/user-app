@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Login.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Navbar } from "./Navbar";
+
 
 const BASE_URL = "http://localhost:5000";
 
@@ -18,13 +20,15 @@ export const Login = ({ setToken }) => {
         password,
       });
       setToken(loginRes?.data?.token);
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       console.log("Something wrong while login:", error);
     }
   };
 
   return (
+  <>
+    <Navbar/>
     <form>
       <div className="container">
         <h1>Login</h1>
@@ -64,5 +68,6 @@ export const Login = ({ setToken }) => {
         </button>
       </div>
     </form>
+    </>
   );
 };

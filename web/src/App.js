@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { isUserAuthenticated, setAuthToken } from "./utils/auth";
 import Cookies from "js-cookie";
 import { ProtectedRoute } from "./components/ProtectedRoute";
+import { Ghar } from "./pages/Ghar";
 
 const App = () => {
   const [jwtToken, setJwtToken] = useState("");
@@ -29,14 +30,17 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           {/* <ProtectedRoute path="/" element={<Home />} token={jwtToken} /> */}
           <Route
-            path="/"
+            path="/home"
             element={
               jwtToken || isUserAuthenticated() ? (
                 <Home />
               ) : (
-                <Navigate to="/login" replace />
+                <Navigate to="/" replace />
               )
             }
+          />
+          <Route path="/" 
+          element= {<Ghar/>}
           />
         </Routes>
       </BrowserRouter>
