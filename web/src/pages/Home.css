@@ -61,3 +61,11 @@
 .main-home {
   margin: 10px 15px 10px 100px;
 }
+
+.home-heading {
+  border: 1px;
+  width: 100%;
+  height: 65px;
+  background: #1b1212;
+  border-radius: 5%;
+}

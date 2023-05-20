@@ -11,6 +11,7 @@ import {
 } from "react-icons/ai";
 import api from "../api/api";
 import { SideDrawer } from "../components/SideDrawer";
+import { Heading } from "../components/Heading";
 
 export const Home = () => {
   const [updatedList, setUpdatedList] = useState([]);
@@ -88,6 +89,9 @@ export const Home = () => {
 
   return (
     <div className="main-home">
+      <div className="home-heading">
+        <Heading heading={"Track Your Users"} />
+      </div>
       <div className="Form-section">
         <Fields createNewUser={(event, user) => createNewUser(event, user)} />
       </div>

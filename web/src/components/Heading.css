@@ -1,12 +1,13 @@
 .heading-title {
-width: 100%
+  width: 100%;
+  color: white;
 }
 
 .heading-name {
-    width: 100%;
-    margin: 25px 10px 17px 40px;
-    font-family: monospace;
-    font-size: 30px;
+  width: 100%;
+  margin: 25px 10px 17px 40px;
+  font-family: monospace;
+  font-size: 30px;
 }
 
 .logout {

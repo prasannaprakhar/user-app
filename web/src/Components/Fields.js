@@ -46,7 +46,7 @@ export const Fields = ({ createNewUser }) => {
   };
 
   return (
-    <div>
+    <div className="form-wrapper">
       <form>
         <div className="row">
           <div className="col-9">

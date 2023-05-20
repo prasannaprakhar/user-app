@@ -1,7 +1,10 @@
 /* .row{
     border: 5px solid black;
 } */
-.col-9{
-    /* width: 30%; */
-   
+.col-9 {
+  /* width: 30%; */
+}
+
+.form-wrapper {
+  margin: 10px;
 }
