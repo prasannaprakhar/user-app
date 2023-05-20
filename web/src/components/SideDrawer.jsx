@@ -43,11 +43,13 @@ export const SideDrawer = () => {
             <ul>
               {sideBarOptions.map((option) => {
                 return (
-                  <li>
-                    <div className="link">
-                      <Link to={option.to}>{option.name}</Link>
-                    </div>
-                  </li>
+                  <div className="li-wrapper">
+                    <li>
+                      <div className="link">
+                        <Link to={option.to}>{option.name}</Link>
+                      </div>
+                    </li>
+                  </div>
                 );
               })}
             </ul>
