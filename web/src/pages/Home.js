@@ -5,6 +5,7 @@ import { HEADING } from "../components/constants";
 import { Records } from "../components/Records";
 import { useState, useEffect } from "react";
 import "./Home.css";
+import { Navbar } from "../components/Navbar";
 import {
   AiOutlineSortAscending,
   AiFillFilter,
@@ -88,8 +89,9 @@ export const Home = () => {
 
   return (
     <div>
-      <div className="Heading-section">
-        <Heading heading={HEADING} />
+      <div className="Navbar-section">
+        {/* <Heading heading={HEADING} /> */}
+        <Navbar/>
       </div>
       <div className="Form-section">
         <Fields createNewUser={(event, user) => createNewUser(event, user)} />

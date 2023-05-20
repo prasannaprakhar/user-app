@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Register.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Navbar } from "./Navbar";
 
 const BASE_URL = "http://localhost:5000";
 
@@ -23,6 +24,10 @@ export const Register = () => {
   };
 
   return (
+    <>
+   <div>
+    <Navbar/>
+   </div>
     <form>
       <div className="container">
         <h1>Register</h1>
@@ -75,5 +80,6 @@ export const Register = () => {
         </button>
       </div>
     </form>
+    </>
   );
 };

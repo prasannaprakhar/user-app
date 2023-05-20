@@ -1,0 +1,82 @@
+.navnar-main{
+    width: 100%;
+    height: 10%;
+    border: 1px solid;
+}
+ .navbar-app{
+    display: flex;
+    justify-content: space-around;
+    background-color: #1B1212;
+    margin: 15px 20px 15px 20px;
+    color: whitesmoke
+  }
+  
+  .heading {
+    background-color: black;
+    color: maroon;
+    text-align: center;
+    width: 50%;
+  }
+  
+  .logout {
+    margin: 10px 19px 14px 14px;
+  }
+  
+  .logout:hover {
+    background-color: lightblue;
+    border: 1px solid;
+    box-shadow: rgba(10, 10, 10, 10.24) 0px 3px 8px;
+  }
+  .title{
+    width: 65%;
+  }
+
+  .profile-bar{
+    justify-content: space-evenly;
+    display: flex;
+    width: 85px;
+    margin: 20px 10px 10px 10px;
+  }
+  .register{
+    width: 50%;
+
+  }
+  .login{
+    width: 50%;
+  }
+
+  .profile{
+    margin: 15px 15px 15px 15px;
+
+  }
+  .profile:hover {
+    background-color:  #1B1212;/* Green */
+    border: 2px solid  #04aa6d;
+    color:   #04aa6d;
+    border-radius: 50%;
+  }
+
+  .sign-out{
+    margin: 15px 15px 15px 15px;
+  }
+  .sign-out:hover {
+    background-color:  #1B1212;/* Green */
+    border: 2px solid red;
+    color:  red;
+    border-radius: 50%;
+  }
+  .profile-bar-unauthenticated {
+    justify-content: space-evenly;
+    display: flex;
+    width: 135px;
+    margin: 33px 10px 10px 10px;
+  }
+  .logo{
+
+    /* border: 2px solid white; */
+    /* border-radius: 50%; */
+    margin: 20px 0px 25px 20px;
+    width: 40px;
+
+  }
+  
