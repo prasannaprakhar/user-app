@@ -25,61 +25,58 @@ export const Register = () => {
 
   return (
     <>
-   <div>
-    <Navbar/>
-   </div>
-    <form>
-      <div className="container">
-        <h1>Register</h1>
-        <p>Please fill in this form to create an account.</p>
-        <hr />
+      <form>
+        <div className="container">
+          <h1>Register</h1>
+          <p>Please fill in this form to create an account.</p>
+          <hr />
 
-        <label for="username">
-          <b>Username</b>
-        </label>
-        <input
-          type="text"
-          placeholder="Username"
-          name="username"
-          id="username"
-          onChange={(event) => setUsername(event.target.value)}
-          value={username}
-        />
+          <label for="username">
+            <b>Username</b>
+          </label>
+          <input
+            type="text"
+            placeholder="Username"
+            name="username"
+            id="username"
+            onChange={(event) => setUsername(event.target.value)}
+            value={username}
+          />
 
-        <label for="email">
-          <b>Email</b>
-        </label>
-        <input
-          type="text"
-          placeholder="Enter Email"
-          name="email"
-          id="email"
-          onChange={(event) => setEmail(event.target.value)}
-          value={email}
-        />
+          <label for="email">
+            <b>Email</b>
+          </label>
+          <input
+            type="text"
+            placeholder="Enter Email"
+            name="email"
+            id="email"
+            onChange={(event) => setEmail(event.target.value)}
+            value={email}
+          />
 
-        <label for="psw">
-          <b>Password</b>
-        </label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="psw"
-          id="psw"
-          onChange={(event) => setPassword(event.target.value)}
-          value={password}
-        />
-        <hr />
+          <label for="psw">
+            <b>Password</b>
+          </label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            id="psw"
+            onChange={(event) => setPassword(event.target.value)}
+            value={password}
+          />
+          <hr />
 
-        <button
-          type="submit"
-          className="registerbtn"
-          onClick={(event) => handleRegister(event)}
-        >
-          Register
-        </button>
-      </div>
-    </form>
+          <button
+            type="submit"
+            className="registerbtn"
+            onClick={(event) => handleRegister(event)}
+          >
+            Register
+          </button>
+        </div>
+      </form>
     </>
   );
 };

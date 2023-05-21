@@ -1,82 +1,83 @@
-.navnar-main{
-    width: 100%;
-    height: 10%;
-    border: 1px solid;
+.navnar-main {
+  width: 100%;
+  height: 10%;
+  border: 1px solid;
 }
- .navbar-app{
-    display: flex;
-    justify-content: space-around;
-    background-color: #1B1212;
-    margin: 15px 20px 15px 20px;
-    color: whitesmoke
-  }
-  
-  .heading {
-    background-color: black;
-    color: maroon;
-    text-align: center;
-    width: 50%;
-  }
-  
-  .logout {
-    margin: 10px 19px 14px 14px;
-  }
-  
-  .logout:hover {
-    background-color: lightblue;
-    border: 1px solid;
-    box-shadow: rgba(10, 10, 10, 10.24) 0px 3px 8px;
-  }
-  .title{
-    width: 65%;
-  }
+.navbar-app {
+  display: flex;
+  justify-content: space-around;
+  background-color: #1b1212;
+  margin: 0px 15px 13px 66px;
+  color: rgb(215, 171, 171);
+  border: 3px solid #73ad21;
+  height: 150px;
+  position: fixed;
+  width: 97%;
+  z-index: 999;
+}
 
-  .profile-bar{
-    justify-content: space-evenly;
-    display: flex;
-    width: 85px;
-    margin: 20px 10px 10px 10px;
-  }
-  .register{
-    width: 50%;
+.heading {
+  background-color: black;
+  color: maroon;
+  text-align: center;
+  width: 50%;
+}
 
-  }
-  .login{
-    width: 50%;
-  }
+.logout {
+  margin: 10px 19px 14px 14px;
+}
 
-  .profile{
-    margin: 15px 15px 15px 15px;
+.logout:hover {
+  background-color: lightblue;
+  border: 1px solid;
+  box-shadow: rgba(10, 10, 10, 10.24) 0px 3px 8px;
+}
+.title {
+  width: 65%;
+  margin: 26px;
+}
 
-  }
-  .profile:hover {
-    background-color:  #1B1212;/* Green */
-    border: 2px solid  #04aa6d;
-    color:   #04aa6d;
-    border-radius: 50%;
-  }
+.profile-bar {
+  justify-content: space-evenly;
+  display: flex;
+  width: 85px;
+  margin: 49px 42px 37px 24px;
+}
+.register {
+  width: 50%;
+}
+.login {
+  width: 50%;
+}
 
-  .sign-out{
-    margin: 15px 15px 15px 15px;
-  }
-  .sign-out:hover {
-    background-color:  #1B1212;/* Green */
-    border: 2px solid red;
-    color:  red;
-    border-radius: 50%;
-  }
-  .profile-bar-unauthenticated {
-    justify-content: space-evenly;
-    display: flex;
-    width: 135px;
-    margin: 33px 10px 10px 10px;
-  }
-  .logo{
+.profile {
+  margin: 15px 15px 15px 15px;
+}
+.profile:hover {
+  background-color: #1b1212; /* Green */
+  border: 2px solid #04aa6d;
+  color: #04aa6d;
+  border-radius: 50%;
+}
 
-    /* border: 2px solid white; */
-    /* border-radius: 50%; */
-    margin: 20px 0px 25px 20px;
-    width: 40px;
-
-  }
-  
+.sign-out {
+  margin: 15px 15px 15px 15px;
+}
+.sign-out:hover {
+  background-color: #1b1212; /* Green */
+  border: 2px solid red;
+  color: red;
+  border-radius: 50%;
+}
+.profile-bar-unauthenticated {
+  justify-content: space-evenly;
+  display: flex;
+  width: 135px;
+  margin: 59px 26px 10px 10px;
+}
+.logo {
+  /* border: 2px solid white; */
+  /* border-radius: 50%; */
+  margin: 45px 0px 25px 20px;
+  width: 40px;
+}

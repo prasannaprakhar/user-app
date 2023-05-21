@@ -1,11 +1,11 @@
 import "./SideDrawer.css";
 import { Home } from "../pages/Home";
-import { Link } from "react-router-dom";
 import {
   VscLayoutSidebarRightOff,
   VscLayoutSidebarRight,
 } from "react-icons/vsc";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const sideBarOptions = [
   {
@@ -25,43 +25,51 @@ const sideBarOptions = [
 export const SideDrawer = () => {
   const [toggle, setToggle] = useState(false);
 
-  const handleSideBarToggle = () => {
+  const toggleDrawer = () => {
     setToggle(!toggle);
   };
 
   return (
-    <div className="side-bar-main">
-      <div className="sidebar-section">
-        <div className="sidebar-logo-main">
-          <div className={toggle ? "sidebar-logo-selected" : "sidebar-logo"}>
-            {<VscLayoutSidebarRight size={30} onClick={handleSideBarToggle} />}
-          </div>
-        </div>
-
-        {toggle ? (
-          <div className="sidebar">
-            <ul>
+    <>
+      {toggle ? (
+        <div className={`side-drawer-new`}>
+          <button className="toggle-button" onClick={toggleDrawer}>
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </button>
+          <ul className="drawer-links">
+            <div
+              className="lis-wrapper
+            "
+            >
               {sideBarOptions.map((option) => {
                 return (
-                  <div className="li-wrapper">
-                    <li>
-                      <div className="link">
-                        <Link to={option.to}>{option.name}</Link>
-                      </div>
-                    </li>
-                  </div>
+                  <Link to={option.to}>
+                    {" "}
+                    <div className="li-wrapper">
+                      <li>{option.name}</li>
+                    </div>
+                  </Link>
                 );
               })}
-            </ul>
-          </div>
-        ) : (
-          <></>
-        )}
-      </div>
-
-      <div className="content">
-        <Home />
-      </div>
-    </div>
+            </div>
+          </ul>
+        </div>
+      ) : (
+        <div className={`side-drawer-new-closed`}>
+          <button className="toggle-button" onClick={toggleDrawer}>
+            <div className="bar"></div>
+            <div className="bar"></div>
+            <div className="bar"></div>
+          </button>
+          <ul className="drawer-links">
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+      )}
+    </>
   );
 };

@@ -9,6 +9,8 @@ import Cookies from "js-cookie";
 import { ProtectedRoute } from "./components/ProtectedRoute";
 import { Ghar } from "./pages/Ghar";
 import { RootPage } from "./pages/RootPage";
+import { Navbar } from "./components/Navbar";
+import { SideDrawer } from "./components/SideDrawer";
 
 const App = () => {
   const [jwtToken, setJwtToken] = useState("");
@@ -21,6 +23,10 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
+        <Navbar />
+        <>{(jwtToken || isUserAuthenticated()) && <SideDrawer />}</>
+
+        <div className="padding-div"></div>
         <Routes>
           <Route
             path="/login"
@@ -34,7 +40,7 @@ const App = () => {
             path="/home"
             element={
               jwtToken || isUserAuthenticated() ? (
-                <RootPage />
+                <Home />
               ) : (
                 <Navigate to="/" replace />
               )

@@ -4,7 +4,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "./Navbar";
 
-
 const BASE_URL = "http://localhost:5000";
 
 export const Login = ({ setToken }) => {
@@ -27,47 +26,46 @@ export const Login = ({ setToken }) => {
   };
 
   return (
-  <>
-    <Navbar/>
-    <form>
-      <div className="container">
-        <h1>Login</h1>
-        <hr />
+    <>
+      <form>
+        <div className="container">
+          <h1>Login</h1>
+          <hr />
 
-        <label for="username">
-          <b>Username</b>
-        </label>
-        <input
-          type="text"
-          placeholder="Username"
-          name="username"
-          id="username"
-          onChange={(event) => setUsername(event.target.value)}
-          value={username}
-        />
+          <label for="username">
+            <b>Username</b>
+          </label>
+          <input
+            type="text"
+            placeholder="Username"
+            name="username"
+            id="username"
+            onChange={(event) => setUsername(event.target.value)}
+            value={username}
+          />
 
-        <label for="psw">
-          <b>Password</b>
-        </label>
-        <input
-          type="password"
-          placeholder="Enter Password"
-          name="psw"
-          id="psw"
-          onChange={(event) => setPassword(event.target.value)}
-          value={password}
-        />
-        <hr />
+          <label for="psw">
+            <b>Password</b>
+          </label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="psw"
+            id="psw"
+            onChange={(event) => setPassword(event.target.value)}
+            value={password}
+          />
+          <hr />
 
-        <button
-          type="submit"
-          className="registerbtn"
-          onClick={(event) => handleLogin(event)}
-        >
-          Login
-        </button>
-      </div>
-    </form>
+          <button
+            type="submit"
+            className="registerbtn"
+            onClick={(event) => handleLogin(event)}
+          >
+            Login
+          </button>
+        </div>
+      </form>
     </>
   );
 };
