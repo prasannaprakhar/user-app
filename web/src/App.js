@@ -47,6 +47,8 @@ const App = () => {
             }
           />
           <Route path="/" element={<Ghar />} />
+          <Route path="/orders" element={<></>} />
+          <Route path="/contact-us" element={<></>} />
         </Routes>
       </BrowserRouter>
     </div>

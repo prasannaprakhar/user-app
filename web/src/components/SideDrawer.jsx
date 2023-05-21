@@ -9,14 +9,17 @@ import { Link } from "react-router-dom";
 
 const sideBarOptions = [
   {
+    id: "home",
     name: "Home",
     to: "/home",
   },
   {
+    id: "orders",
     name: "Orders",
     to: "/orders",
   },
   {
+    id: "contactus",
     name: "Contact Us",
     to: "/contact-us",
   },
@@ -24,9 +27,14 @@ const sideBarOptions = [
 
 export const SideDrawer = () => {
   const [toggle, setToggle] = useState(false);
+  const [selected, setSelected] = useState({});
 
   const toggleDrawer = () => {
     setToggle(!toggle);
+  };
+
+  const handleSideBarClick = (id) => {
+    setSelected({ [id]: true });
   };
 
   return (
@@ -45,9 +53,16 @@ export const SideDrawer = () => {
             >
               {sideBarOptions.map((option) => {
                 return (
-                  <Link to={option.to}>
+                  <Link key={option.id} to={option.to}>
                     {" "}
-                    <div className="li-wrapper">
+                    <div
+                      className={
+                        selected[option.id]
+                          ? "li-wrapper-selected"
+                          : "li-wrapper"
+                      }
+                      onClick={() => handleSideBarClick(option.id)}
+                    >
                       <li>{option.name}</li>
                     </div>
                   </Link>
