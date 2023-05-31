@@ -1,0 +1,47 @@
+.pagination-inner {
+  display: flex;
+  justify-content: space-around;
+  width: 350px;
+  margin: 20px 8px 10px 12px;
+}
+
+.pageno {
+  border: 0px;
+  background-color: white;
+}
+
+.pageno-dot {
+  border: 0px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.back-btn {
+  border: 0px;
+  background-color: white;
+}
+
+.forward-btn {
+  border: 0px;
+  background-color: white;
+}
+
+.pageno:hover {
+  border: 1px solid;
+  border-radius: 30%;
+}
+
+.forward-btn:hover {
+  border: 1px solid;
+  border-radius: 30%;
+}
+
+.back-btn:hover {
+  border: 1px solid;
+  border-radius: 30%;
+}
+
+.pageno-selected {
+  border: 1px solid;
+  border-radius: 30%;
+}

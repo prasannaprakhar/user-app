@@ -1,0 +1,20 @@
+.pagination-bar {
+  display: flex;
+  /* align-content: stretch; */
+  justify-content: space-between;
+  margin: 15px;
+  padding: 5px;
+}
+
+.pagination-filter-outer {
+  margin: 10px;
+}
+
+.pagination-bar-padding {
+  margin: 10px;
+  width: 330px;
+}
+
+.pagination-outer {
+  margin: 10px;
+}
