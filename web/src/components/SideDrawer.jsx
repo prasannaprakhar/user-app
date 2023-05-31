@@ -1,11 +1,13 @@
 import "./SideDrawer.css";
-import { Home } from "../pages/Home";
-import {
-  VscLayoutSidebarRightOff,
-  VscLayoutSidebarRight,
-} from "react-icons/vsc";
+// import { Home } from "../pages/Home";
+// import {
+//   VscLayoutSidebarRightOff,
+//   VscLayoutSidebarRight,
+// } from "react-icons/vsc";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { AiOutlineLeft } from "react-icons/ai";
+
 
 const sideBarOptions = [
   {
@@ -28,6 +30,7 @@ const sideBarOptions = [
 export const SideDrawer = () => {
   const [toggle, setToggle] = useState(false);
   const [selected, setSelected] = useState({
+
     home: true,
   });
 
@@ -43,11 +46,16 @@ export const SideDrawer = () => {
     <>
       {toggle ? (
         <div className={`side-drawer-new`}>
-          <button className="toggle-button" onClick={toggleDrawer}>
+          {
+            toggle ? 
+            <AiOutlineLeft size={30} onClick={toggleDrawer} style={{margin: "60px 1px 6px 4px"}}/>:           
+            <button className="toggle-button" onClick={toggleDrawer}>
             <div className="bar"></div>
             <div className="bar"></div>
             <div className="bar"></div>
           </button>
+          }
+
           <ul className="drawer-links">
             <div
               className="lis-wrapper
@@ -55,7 +63,7 @@ export const SideDrawer = () => {
             >
               {sideBarOptions.map((option) => {
                 return (
-                  <Link key={option.id} to={option.to}>
+                  <Link key={option.id } to={option.to} >
                     {" "}
                     <div
                       className={

@@ -8,9 +8,13 @@ body {
 
 /* Add padding to containers */
 .container {
-  padding: 16px;
+  width: 313px;
+  height: 444px;
+  padding: 24px 27px;
   background-color: white;
-  margin: 105px 10px 31px 92px;
+  margin: 85px 10px 12px 480px;
+  /* border: 1px solid black; */
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 /* Full-width input fields */

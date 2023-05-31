@@ -1,0 +1,20 @@
+.popup-outer{
+    height: auto;
+    width: 260px;
+    position: fixed;
+    z-index: 1000;
+    background-color: white;
+    margin: -70px 19px 23px 555px;
+    display: block;
+
+}
+.popup-outer-closed{
+    display: none;
+
+}
+
+.popup-inner{
+    height: 285px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}

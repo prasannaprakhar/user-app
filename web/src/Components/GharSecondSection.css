@@ -1,0 +1,18 @@
+.video-section{
+    height: 300px;
+    width: 50%;
+    /* border: 1px solid; */
+
+}
+.videoContainer{
+
+    display: flex;
+    /* border: 1px solid; */
+    height: 300px;
+    width: 100%;
+}
+.Othersection{
+    height: 300px;
+    width: 50%;
+    /* border: 1px solid; */
+}

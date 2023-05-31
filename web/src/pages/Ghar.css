@@ -1,0 +1,41 @@
+.first-section{
+    width: 100%;
+    height: auto;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: center;
+    margin-top: 58px;
+}
+
+.about-us-section{
+    width: 75%;
+    height: auto;
+    /* border: 1px solid black; */
+    margin: 10px 40px;
+   
+}
+.login-section{
+    width: 46%;
+    height: 516px;
+    /* border: 1px solid black; */
+    /* padding: 10px 10px; */
+    margin: 0px 0px 20px 13px;
+    /* margin-right: 90px; */
+    padding: 14px 15px;
+    
+}
+
+Input.login-card{
+    width: 40%;
+    height: 100%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid black;
+    margin: 49px 20px 3px 46px;
+    
+}
+.second-section{
+    width: 94%;
+    height: 300px;
+    /* border: 1px solid black; */
+    margin: 11px -1px -34px 37px;
+}

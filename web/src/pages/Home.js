@@ -3,19 +3,20 @@ import { Search } from "../components/Search";
 import { Records } from "../components/Records";
 import { useState, useEffect } from "react";
 import "./Home.css";
-import { Navbar } from "../components/Navbar";
+// import { Navbar } from "../components/Navbar";
 import {
   AiOutlineSortAscending,
   AiFillFilter,
   AiOutlineFilter,
 } from "react-icons/ai";
 import api from "../api/api";
-import { SideDrawer } from "../components/SideDrawer";
+// import { SideDrawer } from "../components/SideDrawer";
 import { Heading } from "../components/Heading";
+import { ProfilePopup } from "../components/ProfilePopup";
 import { PaginationBar } from "../components/Pagination/PaginationBar";
 import { Loader } from "../components/Loader";
 
-export const Home = () => {
+export const Home = ({ popUp }) => {
   const [updatedList, setUpdatedList] = useState([]);
   const [isSorted, setIsSorted] = useState(false);
   const [isFilter, setIsFilter] = useState(false);
@@ -99,6 +100,7 @@ export const Home = () => {
 
   return (
     <div className="main-home">
+      <ProfilePopup popup={popUp} />
       <div className="home-heading">
         <Heading heading={"Track Your Users"} />
       </div>

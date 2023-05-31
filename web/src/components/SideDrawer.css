@@ -15,9 +15,9 @@
 .side-drawer-new-closed {
   position: fixed;
   top: 0;
-  width: 60px;
+  width: 30px;
   height: 100%;
-  background-color: #f2f2f2;
+  background-color: white;
   transition: left 0.3s ease;
   z-index: 100;
   background-color: white;
@@ -25,7 +25,7 @@
 
 .toggle-button {
   position: absolute;
-  left: 20px;
+  left: 3px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -39,7 +39,7 @@
 }
 
 .bar {
-  width: 100%;
+  width: 85%;
   height: 4px;
   background-color: #333;
 }
@@ -75,7 +75,7 @@
 }
 
 .lis-wrapper {
-  margin: 185px 19px 27px 20px;
+  margin: 83px 19px 27px 20px;
   text-align: center;
   color: black;
 }
@@ -88,6 +88,7 @@
   border-radius: 6%;
   color: black;
 }
+
 
 .li-wrapper:hover {
   border: 1px solid;

@@ -7,13 +7,19 @@ import { BsFillPersonFill } from "react-icons/bs";
 import logo from "../images/logo5.jpg";
 import { logoutUser } from "../utils/auth";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
-export const Navbar = () => {
+
+export const Navbar = ({getProfilePopupState}) => {
+  const [toggle, setToggle] = useState(false);
+  console.log(toggle)
+
   const navigate = useNavigate();
   const handleLogout = () => {
     logoutUser();
     navigate("/");
   };
+
   const redirectToLogin = (event) => {
     event.preventDefault();
     navigate("/login");
@@ -32,6 +38,10 @@ export const Navbar = () => {
       navigate("/");
     }
   };
+  const handleProfile = () => {
+    getProfilePopupState(!toggle)
+    setToggle(!toggle)
+  }
 
   return (
     <div className="navbar-app">
@@ -54,7 +64,7 @@ export const Navbar = () => {
       >
         <div className={isUserAuthenticated() ? "profile" : "register"}>
           {isUserAuthenticated() ? (
-            <BsFillPersonFill size={25} />
+            <BsFillPersonFill size={25}  onClick={handleProfile}/>
           ) : (
             <Button
               label={"Log In"}
