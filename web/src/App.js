@@ -14,17 +14,26 @@ import { SideDrawer } from "./components/SideDrawer";
 
 const App = () => {
   const [jwtToken, setJwtToken] = useState("");
+  const [profilePopupToggle, setprofilePopupToggle] = useState(false);
 
   const handleAuthentication = (token) => {
     setJwtToken(token);
     setAuthToken(token);
   };
 
+  const handleAuthenticationFromGhar = (token) => {
+    setJwtToken(token);
+    setAuthToken(token);
+  };
+  const getToggle = (toggle) => {
+    setprofilePopupToggle(toggle);
+  };
+
   return (
     <div className="App">
       <BrowserRouter>
-        <Navbar />
-        <>{(jwtToken || isUserAuthenticated()) && <SideDrawer />}</>
+        <Navbar getProfilePopupState={(toggle) => getToggle(toggle)} />
+        <>{isUserAuthenticated() && <SideDrawer />}</>
 
         <div className="padding-div"></div>
         <Routes>
@@ -34,19 +43,24 @@ const App = () => {
               <Login setToken={(token) => handleAuthentication(token)} />
             }
           />
+          <Route
+            path="/"
+            element={
+              <Ghar setToken={(token) => handleAuthenticationFromGhar(token)} />
+            }
+          />
           <Route path="/register" element={<Register />} />
           {/* <ProtectedRoute path="/" element={<Home />} token={jwtToken} /> */}
           <Route
             path="/home"
             element={
               jwtToken || isUserAuthenticated() ? (
-                <Home />
+                <Home popUp={profilePopupToggle} />
               ) : (
                 <Navigate to="/" replace />
               )
             }
           />
-          <Route path="/" element={<Ghar />} />
           <Route path="/orders" element={<></>} />
           <Route path="/contact-us" element={<></>} />
         </Routes>

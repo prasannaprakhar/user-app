@@ -7,10 +7,10 @@
   display: flex;
   justify-content: space-around;
   background-color: #1b1212;
-  margin: 0px 15px 13px 66px;
+  margin: 0px 15px 13px 35px;
   color: rgb(215, 171, 171);
   border: 3px solid #73ad21;
-  height: 150px;
+  height: 125px;
   position: fixed;
   width: 94%;
   z-index: 999;

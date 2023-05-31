@@ -1,34 +1,37 @@
 import React, { useState } from "react";
-import "./Register.css";
+import "./GharLogin.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { Navbar } from "./Navbar";
+import { Link, useNavigate} from "react-router-dom";
+// import { Navbar } from "./Navbar";
+
 
 const BASE_URL = "http://localhost:5000";
 
-export const Register = () => {
+export const GharLogin = ({ setToken }) => {
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleRegister = async (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
-    const res = await axios.post(BASE_URL + "/register", {
-      username,
-      email,
-      password,
-    });
-    console.log("register response: ", res.data);
-    navigate("/login");
+    try {
+      const loginRes = await axios.post(BASE_URL + "/login", {
+        username,
+        password,
+      });
+      setToken(loginRes?.data?.token);
+      navigate("/home");
+    } catch (error) {
+      console.log("Something wrong while login:", error);
+    }
   };
+  
 
   return (
     <>
       <form>
-        <div className="container2">
-          <h1>Register</h1>
-          <p>Please fill in this form to create an account.</p>
+        <div className="container1">
+          <h1>Login</h1>
           <hr />
 
           <label for="username">
@@ -41,18 +44,6 @@ export const Register = () => {
             id="username"
             onChange={(event) => setUsername(event.target.value)}
             value={username}
-          />
-
-          <label for="email">
-            <b>Email</b>
-          </label>
-          <input
-            type="text"
-            placeholder="Enter Email"
-            name="email"
-            id="email"
-            onChange={(event) => setEmail(event.target.value)}
-            value={email}
           />
 
           <label for="psw">
@@ -71,10 +62,17 @@ export const Register = () => {
           <button
             type="submit"
             className="registerbtn"
-            onClick={(event) => handleRegister(event)}
+            onClick={(event) => handleLogin(event)}
           >
-            Register
+            Login
           </button>
+          <span>Don't have an account?</span>
+
+          <Link to="/register"> 
+          <span> Register now</span>
+
+          </Link>
+          
         </div>
       </form>
     </>

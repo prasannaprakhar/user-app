@@ -10,10 +10,14 @@ export const Fields = ({ createNewUser }) => {
   });
 
   const handleNameChange = (event) => {
-    setUserData((prevState) => ({
-      ...prevState,
+    // setUserData((prevState) => ({
+    //   ...prevState,
+    // name: event.target.value,
+    // }));
+    setUserData({
+      ...userData,
       name: event.target.value,
-    }));
+    });
   };
   const handleDateChange = (event) => {
     setUserData((prevState) => ({
