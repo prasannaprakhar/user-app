@@ -1,0 +1,20 @@
+.pagination-filter {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px;
+}
+
+.pagination-menu {
+  margin: 10px;
+}
+
+.limit {
+  padding: 5px;
+  margin: 10px;
+}
+
+select {
+  word-wrap: normal;
+  width: 50px;
+  height: 30px;
+}

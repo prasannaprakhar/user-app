@@ -30,8 +30,8 @@ const sideBarOptions = [
 export const SideDrawer = () => {
   const [toggle, setToggle] = useState(false);
   const [selected, setSelected] = useState({
-    "home" : true,
 
+    home: true,
   });
 
   const toggleDrawer = () => {

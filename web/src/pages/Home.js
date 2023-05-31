@@ -13,11 +13,15 @@ import api from "../api/api";
 // import { SideDrawer } from "../components/SideDrawer";
 import { Heading } from "../components/Heading";
 import { ProfilePopup } from "../components/ProfilePopup";
+import { PaginationBar } from "../components/Pagination/PaginationBar";
+import { Loader } from "../components/Loader";
 
 export const Home = ({ popUp }) => {
   const [updatedList, setUpdatedList] = useState([]);
   const [isSorted, setIsSorted] = useState(false);
   const [isFilter, setIsFilter] = useState(false);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   //user search api
   const searchUsers = async (event) => {
@@ -33,9 +37,15 @@ export const Home = ({ popUp }) => {
   //create new user api
   const createNewUser = async (event, user) => {
     event.preventDefault();
+
     const response = await api.post("/user/create-user", user);
+
+    !response.data.message && setIsLoading(true);
+
     response.data.message === "User created successfully !!" &&
       getAllUsersList();
+
+    response.data.message && setIsLoading(false);
   };
 
   //get all users
@@ -123,12 +133,19 @@ export const Home = ({ popUp }) => {
           </div>
         </div>
         <div className="">
-          <Records
-            deleteUser={(event, id) => deleteTheUser(event, id)}
-            updateUser={(event, id) => updateTheUser(event, id)}
-            records={updatedList}
-          />
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <Records
+              deleteUser={(event, id) => deleteTheUser(event, id)}
+              updateUser={(event, id) => updateTheUser(event, id)}
+              records={updatedList}
+            />
+          )}
         </div>
+      </div>
+      <div className="main-pagination">
+        <PaginationBar totalRecords={160} getParameters={() => {}} />
       </div>
     </div>
   );
